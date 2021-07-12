@@ -1,0 +1,33 @@
+{
+    "name": "youbora-adapter-bitmovin",
+    "version": "6.5.0",
+    "main": "src/adapter.js",
+    "description": "Youbora adapter for bitmovin",
+    "scripts": {
+        "build": "npm run manifest && webpack -p",
+        "watch": "npm run manifest && webpack -p --progress --color --watch",
+        "deployable": "npm run build && youbora-util deployable",
+        "manifest": "youbora-util manifest",
+        "preversion": "npm run build",
+        "clean": "rm -rf dist deploy manifest.json",
+        "start": "servor ./samples/naxsample/ index.html --browse --reload"
+    },
+    "dependencies": {
+        "servor": "^4.0.2",
+        "youboralib": "^6.5.20"
+    },
+    "devDependencies": {
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "youboralib-util": "1.4.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://bitbucket.org/npaw/bitmovin-adapter-js"
+    },
+    "author": "Jesus Lopez",
+    "license": "MIT",
+    "bugs": {
+        "email": "support@nicepeopleatwork.com"
+    }
+}
