@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="https://cdn.bitmovin.com/player/web/8/bitmovinplayer.js"></script>
+    <script src="http://smartplugin.youbora.com/v6/js/adapters/bitmovin8/6.7.1/sp.min.js"></script>
+</head>
+<body>
+    <div id="my-player"></div>
+    <script>
+        var options = {
+            "title": "Art of Motion",
+            "description": "What is this event... Parcour?",
+            "hls": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+        }
+        var config = {
+            "key": "218c7093-fcf8-487a-999d-5855f8ecbdd1"
+        }
+        var container = document.getElementById('my-player')
+        var player = new bitmovin.player.Player(container,config)
+        if (typeof youbora != "undefined" && youbora.adapters.Bitmovin8) {
+            window.plugin = new youbora.Plugin({accountCode: 'powerqa'})
+            plugin.setAdapter(new youbora.adapters.Bitmovin8(player))
+        }
+        player.load(options).then(
+        function(player) {
+            console.log('Successfully created Bitmovin Player instance')
+        },
+        function(reason) {
+            console.log('Error while creating Bitmovin Player instance')
+        }
+        )
+    </script>
+  </body>
+</html>
